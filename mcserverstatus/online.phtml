@@ -1,0 +1,81 @@
+<!--
+	Minecraft PC & PE Server Status (Website Version)
+	https://github.com/GoneTone/MCServerStatus-WebsiteVersion
+-->
+<html><head>
+	<title><?php echo $server['server']['server_motd'] . ' - Server Status'; ?></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
+  </head><body>
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1><span style="color:green;font-weight:bold"><?php echo $server['server']['server_motd']; ?></span></h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td>Status</td>
+                  <td><span style="color:green;font-weight:bold">Online</span></td>
+                </tr>
+				<tr>
+                  <td>Host</td>
+                  <td><?php echo $server['server']['host']; ?><?php echo ':', $server['server']['port']; ?></td>
+                </tr>
+				<tr>
+                  <td>Server platform</td>
+                  <td><?php echo $server['server']['server_platform']; ?></td>
+                </tr>
+				<tr>
+                  <td>Server software</td>
+                  <td><?php echo $server['server']['version']['software']; ?></td>
+                </tr>
+				<tr>
+                  <td>Game version</td>
+                  <td><?php echo $server['server']['version']['version']; ?></td>
+                </tr>
+				<tr>
+                  <td>Plugins</td>
+                  <td>
+				    <?php foreach ($server['plugins'] as $plugin) : ?>
+					  <?php echo '<font color="#FF8800">' . $plugin['name'] . '</font>, '; ?>
+					<?php endforeach; ?>
+				  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Players (<font color="green"><?php echo $server['server']['players_online']; ?></font>/<font color="red"><?php echo $server['server']['players_max']; ?></font>)</h1>
+            <ul class="list-group">
+			  <?php foreach ($server['players'] as $player) : ?>
+			    <?php if ($server['server']['server_platform'] == 'MINECRAFT') : ?>
+				  <?php echo '<li class="list-group-item"><img src="http://cravatar.eu/helmavatar/' . $player['name'] . '/20.png"> ' . $player['name'] . '</li>'; ?>
+                <?php else : ?>
+				  <?php echo '<li class="list-group-item"><img src="http://cravatar.eu/helmavatar/steve/20.png"> ' . $player['name'] . '</li>'; ?>
+			    <?php endif; ?>
+			  <?php endforeach; ?>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+</body></html>

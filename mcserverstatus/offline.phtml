@@ -1,0 +1,72 @@
+<!--
+	Minecraft PC & PE Server Status (Website Version)
+	https://github.com/GoneTone/MCServerStatus-WebsiteVersion
+-->
+<html><head>
+	<title>Server is offline</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
+  </head><body>
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1><span style="color:red;font-weight:bold">Server is offline</span></h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td>Status</td>
+                  <td><span style="color:red;font-weight:bold">Offline</span></td>
+                </tr>
+				<tr>
+                  <td>Host</td>
+                  <td><?php echo $host; ?><?php echo ':', $port; ?></td>
+                </tr>
+				<tr>
+                  <td>Server platform</td>
+                  <td><?php echo $server['server']['server_platform']; ?></td>
+                </tr>
+				<tr>
+                  <td>Server software</td>
+                  <td><?php echo $server['server']['version']['software']; ?></td>
+                </tr>
+				<tr>
+                  <td>Game version</td>
+                  <td><?php echo $server['server']['version']['version']; ?></td>
+                </tr>
+				<tr>
+                  <td>Plugins</td>
+                  <td>
+				  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Players (<font color="green"><?php echo $server['server']['players_online']; ?></font>/<font color="red"><?php echo $server['server']['players_max']; ?></font>)</h1>
+            <ul class="list-group">
+			  Not found
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+</body></html>
