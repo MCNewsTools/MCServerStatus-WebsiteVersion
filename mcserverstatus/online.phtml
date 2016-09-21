@@ -32,7 +32,15 @@
                 </tr>
 				<tr>
                   <td>Server platform</td>
-                  <td><?php echo $server['server']['server_platform']; ?></td>
+                  <td><?php 
+					if ($server['server']['server_platform'] == 'MINECRAFT') {
+				      echo 'Minecraft';
+					} else if ($server['server']['server_platform'] == 'MINECRAFTPE') {
+					  echo 'Minecraft: Pocket Edition';
+					} else {
+					  echo $server['server']['server_platform'];
+					}
+					?></td>
                 </tr>
 				<tr>
                   <td>Server software</td>
@@ -66,13 +74,17 @@
           <div class="col-md-12">
             <h1>Players (<font color="green"><?php echo $server['server']['players_online']; ?></font>/<font color="red"><?php echo $server['server']['players_max']; ?></font>)</h1>
             <ul class="list-group">
-			  <?php foreach ($server['players'] as $player) : ?>
-			    <?php if ($server['server']['server_platform'] == 'MINECRAFT') : ?>
-				  <?php echo '<li class="list-group-item"><img src="http://cravatar.eu/helmavatar/' . $player['name'] . '/20.png"> ' . $player['name'] . '</li>'; ?>
-                <?php else : ?>
-				  <?php echo '<li class="list-group-item"><img src="http://cravatar.eu/helmavatar/steve/20.png"> ' . $player['name'] . '</li>'; ?>
-			    <?php endif; ?>
-			  <?php endforeach; ?>
+			  <?php if ($server['server']['players_online'] == 0) : ?>
+			    <font color="red">Not found.</font>
+			  <?php else : ?>
+			    <?php foreach ($server['players'] as $player) : ?>
+			      <?php if ($server['server']['server_platform'] == 'MINECRAFT') : ?>
+				    <?php echo '<li class="list-group-item"><img src="http://cravatar.eu/helmhead/' . $player['name'] . '/20.png"> ' . $player['name'] . '</li>'; ?>
+                  <?php else : ?>
+				    <?php echo '<li class="list-group-item"><img src="http://cravatar.eu/helmhead/steve/20.png"> ' . $player['name'] . '</li>'; ?>
+			      <?php endif; ?>
+			    <?php endforeach; ?>
+		      <?php endif; ?>
             </ul>
           </div>
         </div>

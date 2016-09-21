@@ -16,6 +16,11 @@
         <div class="row">
           <div class="col-md-12">
             <h1><span style="color:red;font-weight:bold">Server is offline</span></h1>
+			<p><b><font color="#FF0088">Possible Causes:</font></b>
+            <br>　<font color="#FF5511">- Server is not started.</font>
+			<br>　<font color="#FF5511">- Query is not enabled.</font>
+			<br>　<font color="#FF5511">- IP / Host input error.</font>
+			<br>　<font color="#FF5511">- Port input error.</font></p>
           </div>
         </div>
         <div class="row">
@@ -61,9 +66,9 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h1>Players (<font color="green"><?php echo $server['server']['players_online']; ?></font>/<font color="red"><?php echo $server['server']['players_max']; ?></font>)</h1>
+            <h1>Players (<font color="green">-</font>/<font color="red">-</font>)</h1>
             <ul class="list-group">
-			  Not found
+			  Not found.
             </ul>
           </div>
         </div>
