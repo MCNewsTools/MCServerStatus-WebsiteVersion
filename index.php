@@ -2,7 +2,7 @@
 
 /*
  Name: Minecraft PC & PE Server Status (Website Version)
- URI: https://github.com/GoneTone/MCServerStatus-WebsiteVersion
+ URI: https://github.com/MCServerStatus/MCServerStatus-WebsiteVersion
  Description: Minecraft PC & PE Server Status Website Version, On your website show Minecraft PC & PE server data.
  Version: 1.0.0
  Author: 旋風之音 GoneTone
