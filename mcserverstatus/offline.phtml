@@ -29,23 +29,27 @@
               <tbody>
                 <tr>
                   <td>Status</td>
-                  <td><span style="color:red;font-weight:bold">Offline</span></td>
+                  <td><span style="color:red;font-weight:bold"><?php echo _('Offline'); ?></span></td>
                 </tr>
 				<tr>
-                  <td>Host</td>
+                  <td>IP / Host</td>
                   <td><?php echo $host; ?><?php echo ':', $port; ?></td>
                 </tr>
 				<tr>
-                  <td>Server platform</td>
-                  <td><?php echo $server['server']['server_platform']; ?></td>
-                </tr>
-				<tr>
-                  <td>Server software</td>
-                  <td><?php echo $server['server']['version']['software']; ?></td>
-                </tr>
-				<tr>
                   <td>Game version</td>
-                  <td><?php echo $server['server']['version']['version']; ?></td>
+                  <td><?php 
+					if ($server['server']['server_platform'] == 'MINECRAFT') {
+				      echo 'Minecraft';
+					} else if ($server['server']['server_platform'] == 'MINECRAFTPE') {
+					  echo 'Minecraft: Pocket Edition';
+					} else {
+					  echo $server['server']['server_platform'];
+					}
+					?> <span style="color:green;font-weight:bold"><?php echo $server['server']['version']['version']; ?></span></td>
+                </tr>
+				<tr>
+                  <td>Server system</td>
+                  <td><?php echo $server['server']['version']['software']; ?></td>
                 </tr>
 				<tr>
                   <td>Plugins</td>

@@ -27,11 +27,11 @@
                   <td><span style="color:green;font-weight:bold">Online</span></td>
                 </tr>
 				<tr>
-                  <td>Host</td>
+                  <td>IP / Host</td>
                   <td><?php echo $server['server']['host']; ?><?php echo ':', $server['server']['port']; ?></td>
                 </tr>
 				<tr>
-                  <td>Server platform</td>
+                  <td>Game version</td>
                   <td><?php 
 					if ($server['server']['server_platform'] == 'MINECRAFT') {
 				      echo 'Minecraft';
@@ -40,21 +40,17 @@
 					} else {
 					  echo $server['server']['server_platform'];
 					}
-					?></td>
+					?> <span style="color:green;font-weight:bold"><?php echo $server['server']['version']['version']; ?></span></td>
                 </tr>
 				<tr>
-                  <td>Server software</td>
+                  <td>Server system</td>
                   <td><?php echo $server['server']['version']['software']; ?></td>
-                </tr>
-				<tr>
-                  <td>Game version</td>
-                  <td><?php echo $server['server']['version']['version']; ?></td>
                 </tr>
 				<tr>
                   <td>Plugins</td>
                   <td>
 				    <?php foreach ($server['plugins'] as $plugin) : ?>
-					  <?php echo '<font color="#FF8800">' . $plugin['name'] . '</font>, '; ?>
+					  <?php echo '<p class="btn btn-primary btn-xs">' . $plugin['name'] . '</p> '; ?>
 					<?php endforeach; ?>
 				  </td>
                 </tr>
